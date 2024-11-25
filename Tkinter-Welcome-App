@@ -1,0 +1,31 @@
+from tkinter import *
+
+# إنشاء نافذة رئيسية
+window = Tk()
+window.title("Misara Gamal")
+window.geometry("400x300")
+window.configure(bg="#ddd")
+
+# إضافة التسمية (Label) لطلب إدخال الاسم
+LabelE = Label(window, text="Enter name :- ", font=("Arial", 14))
+LabelE.pack(pady=10)
+
+# إضافة حقل الإدخال (Entry) لإدخال اسم المستخدم
+name_entry = Entry(window, font=("Arial", 14))
+name_entry.pack(pady=10)
+
+# دالة لعرض الرسالة الترحيبية
+def show_message():
+    name = name_entry.get()  # الحصول على الاسم من حقل الإدخال
+    welcome_label.config(text=f"Welcome, {name}!")  # تحديث النص في welcome_label
+
+# إضافة التسمية (Label) لعرض الرسالة الترحيبية
+welcome_label = Label(window, text="Welcome message will appear here", font=("Arial", 16), fg="blue")
+welcome_label.pack(pady=10)
+
+# إضافة الزر الذي يقوم بتفعيل دالة show_message عند الضغط عليه
+button = Button(window, text="Welcome", font=("Arial", 14), command=show_message)
+button.pack(pady=10)
+
+# تشغيل التطبيق
+window.mainloop()
